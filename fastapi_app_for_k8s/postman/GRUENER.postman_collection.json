@@ -1,0 +1,1085 @@
+{
+	"info": {
+		"_postman_id": "9dcb7c3a-b611-4f94-9795-601a0e3107c0",
+		"name": "GRUENER",
+		"description": "Postman allows you to test out our APIs [using simple Javascript code](https://postman.postman.co/workspace/API-Visualizer-Template-~6311738d-2e70-441f-ae12-78caf078c5b7/collection/22517504-c60852f9-f785-46f6-8917-11ccbc3fa316?ctx=documentation). You can evaluate your responses including their bodies, headers, cookies using the [ChaiJS BDD](https://www.chaijs.com/api/bdd/) syntax.\n\nThis collection showcases how you can do Integration testing on your APIs using Postman.\n\nTo get started, head over to the first request in the collection, click on `Send`. Once you receive the response, you can see the results in the `Test Results` tab in the response section. Feel free to edit the test scripts to test your APIs.\n\nYou can find the full Postman Sandbox API reference [here](https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#writing-assertions).\n\n<img src=\"https://content.pstmn.io/52b47981-dc82-4cfc-a9ac-e50a48d7f101/aW1hZ2UucG5n\" alt=\"pm.test%20syntax\" width=\"689\" height=\"99\">\n\n<img src=\"https://content.pstmn.io/d7c1a57a-aa8f-49d0-8752-276cc25f40d8/aW1hZ2UucG5n\" alt=\"chai%20expect%20for%20assertion\" width=\"533\" height=\"67\">",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26664427"
+	},
+	"item": [
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Create company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ekstraklasa\",\n  \"mission\": \"Affordable Energy!\",\n  \"nuis\": \"12upw2asda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/companies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Company already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"DataMax\",\n  \"mission\": \"Affordable Energy!\",\n  \"nuis\": \"k123789w\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/companies/add",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"companies",
+										"add"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/companies/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "companyid",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/companies/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1a2bbc37-4960-4b9a-883f-15de6530a8a2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company employees",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "companyid",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/companies/:id/employees",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								":id",
+								"employees"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1a2bbc37-4960-4b9a-883f-15de6530a8a2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company farms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "companyid",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/companies/:id/farms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								":id",
+								"farms"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d6729b4c-31ab-49ea-a4a9-71e201622870"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company weathers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/companies/:id/weathers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								":id",
+								"weathers"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d6729b4c-31ab-49ea-a4a9-71e201622870"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DataMer\",\n    \"mission\":\"Missionless\",\n    \"nuis\":\"781prewqeq\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/companies/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1a2bbc37-4960-4b9a-883f-15de6530a8a2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/companies/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1a2bbc37-4960-4b9a-883f-15de6530a8a2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Hire employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Lawrence\",\n    \"company_id\": \"1a2bbc37-4960-4b9a-883f-15de6530a8a2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employees",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Link to roles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role_id\":\"66aa6509-1694-404d-a123-32161200866c\",\n    \"employee_id\":\"790c6642-f7fe-4036-bc42-9c4ff5a6c077\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employees/link/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees",
+								"link",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employees/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employees/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8c9050e1-f76e-4b98-bc62-2b63f27ff9e5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Roles for an employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employees/:id/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees",
+								":id",
+								"roles"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8c9050e1-f76e-4b98-bc62-2b63f27ff9e5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Roger\",\n    \"company_id\":\"1a2bbc37-4960-4b9a-883f-15de6530a8a2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employees/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8c9050e1-f76e-4b98-bc62-2b63f27ff9e5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employees/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9e5a20be-da0c-4fde-a0cc-0a229a654d53"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Farms",
+			"item": [
+				{
+					"name": "Buy farm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"Fier\",\n  \"area\": 16000,\n  \"exp_output\": 5.2,\n  \"nr_panels\": 40,\n  \"landscape\": \"hilly\",\n  \"orientation\": \"West\",\n  \"company_id\": \"3bb8e7e7-ec97-46fe-9525-5809e38109ac\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/farms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Farms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/farms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Farm by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/farms/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "cc51be21-fec1-4062-8878-9f7eaabb8b53"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Farm panels",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"VLora\",\n  \"area\": 13000,\n  \"exp_output\": 7.2,\n  \"nr_panels\": 45,\n  \"landscape\": \"field\",\n  \"orientation\": \"West\",\n  \"companyid\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/farms/:id/panels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms",
+								":id",
+								"panels"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "918ea881-00da-443f-8827-914630ab0d82"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Farm weathers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"VLora\",\n  \"area\": 13000,\n  \"exp_output\": 7.2,\n  \"nr_panels\": 45,\n  \"landscape\": \"field\",\n  \"orientation\": \"West\",\n  \"companyid\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/farms/:id/weathers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms",
+								":id",
+								"weathers"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "918ea881-00da-443f-8827-914630ab0d82"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update farm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"location\": \"Kruje\",\n        \"area\": 2.0,\n        \"exp_output\": 1.3,\n        \"nr_panels\": 1,\n        \"landscape\": \"string\",\n        \"orientation\": \"string\",\n        \"company_id\": \"1a2bbc37-4960-4b9a-883f-15de6530a8a2\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/farms/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f82d163e-5fbb-4ab1-beec-4ea6f4b8d0c1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete farm",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/farms/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"farms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Panels",
+			"item": [
+				{
+					"name": "Add panel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"width\":6,\n    \"height\":6,\n    \"depth\":2,\n    \"brand\":\"Strom\",\n    \"material\":\"silicon\",\n    \"farm_id\":\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/panels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"panels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Panels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/panels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"panels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Panel by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/panels/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"panels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update panel field's",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"width\":6,\n    \"height\":6,\n    \"depth\":2,\n    \"brand\":\"Strom\",\n    \"material\":\"silicon\",\n    \"farm_id\":\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/panels/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"panels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove panel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/panels/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"panels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Role by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/roles/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "39920cb3-cb10-44ea-8f5c-d5124541f78f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Cleaner\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Coordinator\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/roles/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove role",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Technician\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/roles/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Weather",
+			"item": [
+				{
+					"name": "Create weather",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"farm_id\":\"1fea4de5-aabb-4a9d-850f-5b2530be631e\",\n    \"company_id\":\"3bb8e7e7-ec97-46fe-9525-5809e38109ac\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/weather/:city",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"weather",
+								":city"
+							],
+							"variable": [
+								{
+									"key": "city",
+									"value": "Durres"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weathers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/weather/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"weather",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/weather/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"weather",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "210341d5-f08d-4262-aac9-13846fec03c4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update weather",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sunrise\": \"2023-04-07T23:26:40.675Z\",\n  \"sunset\": \"2023-04-07T23:26:40.675Z\",\n  \"temperature\": 12,\n  \"pressure\": 0,\n  \"humidity\": 0,\n  \"clouds\": 0,\n  \"wind_speed\": 0,\n  \"rain\": 0,\n  \"snow\": 0,\n  \"farm_id\":\"1fea4de5-aabb-4a9d-850f-5b2530be631e\",\n  \"company_id\":\"3bb8e7e7-ec97-46fe-9525-5809e38109ac\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/weather/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"weather",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete weather",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/weather/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"weather",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://postman-echo.com"
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:8080"
+		}
+	]
+}

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task5-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task5
+  template:
+    metadata:
+      labels:
+        app: task5
+    spec:
+      containers:
+        - name: task5
+          image: task5:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          env:
+            - name: DB_HOST
+              value: db-service
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: postgres
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: postgres-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: postgres-password
